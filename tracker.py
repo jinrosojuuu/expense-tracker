@@ -21,22 +21,37 @@ print("-" * 40)
 name = input("Enter your name: ")
 print(f"\nWelcome, {name}! Let's log two expenses.\n")
 
+subtotal = 0
+
 item1 = input("Enter first item: ")
 amount1 = float(input("Enter amount: "))
+subtotal += amount1
 
 item2 = input("Enter second item: ")
 amount2 = float(input("Enter amount: "))
+subtotal += amount2
 
-total = amount1 + amount2
-average = total / 2
+average = subtotal / 2
+
+tax_percent = float(input("Enter tax rate %?: "))
+tax = subtotal * (tax_percent / 100)
+total = subtotal + tax
+
+budget = float(input("Enter your budget: "))
+over_budget = total > budget
+left = budget - total
 
 print("-" * 40)
 print("SUMMARY")
 print(f"{item1}\t\t{amount1}")
 print(f"{item2}\t\t{amount2}")
-print(f"Total spent\t{total}")
+print(f"Subtotal\t{subtotal}")
 print(f"Average\t\t{average}")
+print(f"Tax ({tax_percent}%)\t{tax}")
+print(f"Grand total\t{total}")
+print(f"Over budget?\t{over_budget}")
+print(f"Left in budget\t{left}")
 
 print("-" * 40)
-print("Made by: Jose D.C. Rebeta III | Installment 2")
+print("Made by: Jose D.C. Rebeta III | Installment 3")
 print("=" * 40)
